@@ -25,7 +25,7 @@ public class Test_01_CheckEnvironment {
   public void beforeClass() {
 	  driver = new ChromeDriver();
 	  driver.get("http://demo.guru99.com/v4/");
-	  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	  driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	  driver.manage().window().maximize();
   }
 
