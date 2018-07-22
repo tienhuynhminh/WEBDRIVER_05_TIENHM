@@ -30,7 +30,6 @@ public class Test_02_XPath_CSS_Location {
 	  driver.findElement(By.id("send2")).click();
 	  String usernameEmptyMessage = driver.findElement(By.id("advice-required-entry-email")).getText();
 	  Assert.assertEquals(usernameEmptyMessage,"This is a required field.");
-	  
 	  String passwordEmptyMessage = driver.findElement(By.id("advice-required-entry-pass")).getText();
 	  Assert.assertEquals(passwordEmptyMessage,"This is a required field.");	  
     }
