@@ -1,19 +1,15 @@
 package Selenium_API;
 
 import org.testng.annotations.Test;
-
-import junit.framework.Assert;
-
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 
-public class Test_02_XPath_CSS_Location {
+public class Test_02_XPath_CSS_Locator {
 	WebDriver driver;
 	
   @BeforeClass
