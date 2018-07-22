@@ -42,10 +42,7 @@ public class Test_02_XPath_CSS_Location {
 	  driver.findElement(By.cssSelector("#email")).sendKeys("1111@11.111.22");
 	  driver.findElement(By.id("send2")).click();
 	  String usernameInvalidMessage = driver.findElement(By.id("advice-validate-email-email")).getText();
-	  Assert.assertEquals(usernameInvalidMessage,"Please enter a valid email address. For example johndoe@domain.com.");
-	  
-	  
-  	  
+	  Assert.assertEquals(usernameInvalidMessage,"Please enter a valid email address. For example johndoe@domain.com.");  	  
     }
   
   @Test
