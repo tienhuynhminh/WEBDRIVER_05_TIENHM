@@ -79,7 +79,7 @@ public class Test_02_XPath_CSS_Locator {
 	  driver.findElement(By.xpath("//a[@title=\"Create an Account\"]")).click();
 	  driver.findElement(By.cssSelector("#firstname")).sendKeys("Tien");
 	  driver.findElement(By.cssSelector("#lastname")).sendKeys("Huynh Minh");
-	  driver.findElement(By.cssSelector("#email_address")).sendKeys("tienhuynhminh@gmail.com");
+	  driver.findElement(By.cssSelector("#email_address")).sendKeys("tienhm2@gmail.com");
 	  driver.findElement(By.cssSelector("#password")).sendKeys("123456789");
 	  driver.findElement(By.cssSelector("#confirmation")).sendKeys("123456789");
 	  driver.findElement(By.xpath("//div[@class=\"buttons-set\"]//button[@class=\"button\"]")).click();
