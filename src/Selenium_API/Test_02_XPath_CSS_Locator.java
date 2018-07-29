@@ -19,6 +19,24 @@ public class Test_02_XPath_CSS_Locator {
   }
 
   @Test
+  public void TC_01_Verify_URL() {
+	  driver.get("http://live.guru99.com/index.php/");
+	  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	  String homePageTitle = driver.getTitle();
+	  Assert.assertEquals(homePageTitle, "Home page");
+	  driver.findElement(By.xpath("//div[@class='footer']//a[text() = 'My Account']")).click();
+	  driver.findElement(By.xpath("//a[@title=\"Create an Account\"]")).click();
+	  driver.navigate().back();
+	  Assert.assertTrue(driver.findElement(By.xpath("//form[@id='login-form']")).isDisplayed());
+	  String nameURL = driver.getCurrentUrl();
+	  Assert.assertEquals(nameURL, "http://live.guru99.com/index.php/customer/account/login/");
+	  driver.navigate().forward();
+	  Assert.assertTrue(driver.findElement(By.xpath("//form[@id='form-validate']")).isDisplayed());	  
+	  String nameURL2 = driver.getCurrentUrl();
+	  Assert.assertEquals(nameURL2, "http://live.guru99.com/index.php/customer/account/create/");
+  }
+	  
+  @Test
   public void TC_02_Login_empty() {
 	  driver.get("http://live.guru99.com/index.php/");
 	  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -51,8 +69,26 @@ public class Test_02_XPath_CSS_Locator {
 	  driver.findElement(By.id("send2")).click();
 	  String passwordInvalidMessage = driver.findElement(By.id("advice-validate-password-pass")).getText();
 	  Assert.assertEquals(passwordInvalidMessage,"Please enter 6 or more characters without leading or trailing spaces.");
-    }
+    }   
   
+  @Test
+  public void TC_05_Create_Account() {
+	  driver.get("http://live.guru99.com/index.php/");
+	  driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	  driver.findElement(By.xpath("//div[@class='footer']//a[text() = 'My Account']")).click();
+	  driver.findElement(By.xpath("//a[@title=\"Create an Account\"]")).click();
+	  driver.findElement(By.cssSelector("#firstname")).sendKeys("Tien");
+	  driver.findElement(By.cssSelector("#lastname")).sendKeys("Huynh Minh");
+	  driver.findElement(By.cssSelector("#email_address")).sendKeys("tienhuynhminh@gmail.com");
+	  driver.findElement(By.cssSelector("#password")).sendKeys("123456789");
+	  driver.findElement(By.cssSelector("#confirmation")).sendKeys("123456789");
+	  driver.findElement(By.xpath("//div[@class=\"buttons-set\"]//button[@class=\"button\"]")).click();
+	  //String messagesucc = driver.findElement(By.id(id)).getText();
+	  //Assert.assertEquals(messagesucc, "Thank you for registering with Main Website Store.");
+	  
+	  
+  }
+	  
   
   @AfterClass
   public void afterClass() {
